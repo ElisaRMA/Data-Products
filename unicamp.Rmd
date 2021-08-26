@@ -49,26 +49,26 @@ latlng <- write.csv(markers, file='lat_lng.csv')
 
 websites <- c(
         "<a target='_blank' href='http://www.ib.unicamp.br/'>Instituto de Biologia</a>",
-        "<a href='https://www.iar.unicamp.br/en/'>Instituto de Artes</a>", 
-        "<a href='https://ic.unicamp.br/'>Instituto da Computação</a>",
-        "<a href='https://www.eco.unicamp.br/'>Instituto de Economia</a>",
-        "<a href='https://www.iel.unicamp.br/'>Instituto de Estudos Linguisticos</a>",
-        "<a href='https://www.ifch.unicamp.br/'>Instituto de Filosofia e Ciências Humanas</a>",
-        "<a href='https://portal.ifi.unicamp.br/'>Instituto de Física</a>",
-        "<a href='https://portal.ige.unicamp.br/'>Instituto de Geociencias</a>",
-        "<a href='https://www.ime.unicamp.br/index.php'>Instituto de Matemática</a>",
-        "<a href='https://iqm.unicamp.br/'>Instituto de Química</a>",
-        "<a href='https://www.fcf.unicamp.br/pt-br/'>Faculdade de Ciências Farmaceuticas</a>",
-        "<a href='https://www.fcm.unicamp.br/fcm/'>Faculdade de Ciências Médicas</a>",
-        "<a href='https://www.fea.unicamp.br/'>Faculdade de Engenharia de Alimentos</a>",
-        "<a href='https://www.feagri.unicamp.br/portal/en/'>Faculdade de Engenharia Agrícola</a>",
-        "<a href='https://www.fem.unicamp.br/index.php/pt-br/'>Faculdade de Engenharia Mecânica</a>",
-        "<a href='http://www.feq.unicamp.br/'>Faculdade de Engenharia Química</a>",
-        "<a href='https://www.fef.unicamp.br/fef/'>Faculdade de Educação Física</a>",
-        "<a href='https://www.fe.unicamp.br/'>Faculdade de Educação</a>",
-        "<a href='https://www.fecfau.unicamp.br/'>Faculdade de Engenharia Civil, Arquitetura e Urbanismo</a>",
-        "<a href='https://www.fee.unicamp.br/'>Faculdade de Engenharia Elétrica e da Computação</a>",
-        "<a href='https://www.fenf.unicamp.br/'>Faculdade de Enfermagem</a>"
+        "<a target='_blank'href='https://www.iar.unicamp.br/en/'>Instituto de Artes</a>", 
+        "<a target='_blank'href='https://ic.unicamp.br/'>Instituto da Computação</a>",
+        "<a target='_blank'href='https://www.eco.unicamp.br/'>Instituto de Economia</a>",
+        "<a target='_blank'href='https://www.iel.unicamp.br/'>Instituto de Estudos Linguisticos</a>",
+        "<a target='_blank'href='https://www.ifch.unicamp.br/'>Instituto de Filosofia e Ciências Humanas</a>",
+        "<a target='_blank'href='https://portal.ifi.unicamp.br/'>Instituto de Física</a>",
+        "<a target='_blank'href='https://portal.ige.unicamp.br/'>Instituto de Geociencias</a>",
+        "<a target='_blank'href='https://www.ime.unicamp.br/index.php'>Instituto de Matemática</a>",
+        "<a target='_blank'href='https://iqm.unicamp.br/'>Instituto de Química</a>",
+        "<a target='_blank'href='https://www.fcf.unicamp.br/pt-br/'>Faculdade de Ciências Farmaceuticas</a>",
+        "<a target='_blank'href='https://www.fcm.unicamp.br/fcm/'>Faculdade de Ciências Médicas</a>",
+        "<a target='_blank'href='https://www.fea.unicamp.br/'>Faculdade de Engenharia de Alimentos</a>",
+        "<a target='_blank'href='https://www.feagri.unicamp.br/portal/en/'>Faculdade de Engenharia Agrícola</a>",
+        "<a target='_blank'href='https://www.fem.unicamp.br/index.php/pt-br/'>Faculdade de Engenharia Mecânica</a>",
+        "<a target='_blank'href='http://www.feq.unicamp.br/'>Faculdade de Engenharia Química</a>",
+        "<a target='_blank'href='https://www.fef.unicamp.br/fef/'>Faculdade de Educação Física</a>",
+        "<a target='_blank'href='https://www.fe.unicamp.br/'>Faculdade de Educação</a>",
+        "<a target='_blank'href='https://www.fecfau.unicamp.br/'>Faculdade de Engenharia Civil, Arquitetura e Urbanismo</a>",
+        "<a target='_blank'href='https://www.fee.unicamp.br/'>Faculdade de Engenharia Elétrica e da Computação</a>",
+        "<a target='_blank'href='https://www.fenf.unicamp.br/'>Faculdade de Enfermagem</a>"
         )
 
 
@@ -85,7 +85,7 @@ icon <- makeIcon(
         iconUrl = 'http://www.ic.unicamp.br/~stolfi/EXPORT/projects/ic-logos/2010-03-16/logotipos/png/logo-unicamp-name-line-blk-red-0480.png',
         iconWidth = 31 , 
         iconHeight = 31,
-        iconAnchorX = 25, 
+        iconAnchorX = 0, 
         iconAnchorY = 0
         )
 
