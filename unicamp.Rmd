@@ -1,0 +1,99 @@
+---
+title: "Unicamp - Interactive Map"
+author: "ElisaRMA"
+date: '8/25/2021'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The idea here is to create a map from University of Campinas and point out each Institute or Faculty, with an interactive marker that carries the link its website.  
+
+```{r, echo=FALSE}
+
+ib <- c(-22.819297532530623, -47.06948648743232)
+ia <- c(-22.815324197578896, -47.070260097634026)
+ic <- c(-22.81497794717103, -47.06487371177191)
+ie <- c(-22.814888789490023, -47.06585951464857)
+iel <- c(-22.815187484345753, -47.069177088060805)
+ifch <- c(-22.815273203112273, -47.06825483217784)
+ifgw <- c(-22.817844425427, -47.067112211140305)
+ig <- c(-22.81303323335297, -47.068496230962694)
+imecc <- c(-22.815874354426576, -47.06778057538615)
+iq <- c(-22.819368390545936, -47.067537096847154)
+fcf <- c(-22.824450751283752, -47.06524535709541)
+fcm <- c(-22.83020852776865, -47.06307595301051)
+fea <- c(-22.820356904597244, -47.067439943612264)
+feagri <- c(-22.819543843948054, -47.060542005940526)
+fem <- c(-22.819685058943865, -47.065714510332405)
+feq <- c(-22.820926493133175, -47.064385406673054)
+fef <- c(-22.815199300464766, -47.072840713520634)
+fe <-  c(-22.8166312748378, -47.06562803889621)
+fec <-  c(-22.816463368470455, -47.06192972189398)        
+feec <- c(-22.82102416857582, -47.066477044376064)
+fenf <- c(-22.830938988178954, -47.063309796327786)
+        
+markers <- data.frame (
+        lat = c(ib[1], ia[1], ic[1], ie[1], iel[1], ifch[1], ifgw[1], ig[1], imecc[1], 
+                iq[1], fcf[1], fcm[1], fea[1], feagri[1],     fem[1], feq[1], fef[1], 
+                fe[1], fec[1], feec[1], fenf[1]),
+        
+        lng = c(ib[2], ia[2], ic[2], ie[2], iel[2], ifch[2], ifgw[2], ig[2], imecc[2], 
+                iq[2], fcf[2], fcm[2], fea[2], feagri[2], fem[2], feq[2], fef[2], fe[2], 
+                fec[2], feec[2], fenf[2])
+)
+
+latlng <- write.csv(markers, file='lat_lng.csv')
+
+websites <- c(
+        "<a target='_blank' href='http://www.ib.unicamp.br/'>Instituto de Biologia</a>",
+        "<a href='https://www.iar.unicamp.br/en/'>Instituto de Artes</a>", 
+        "<a href='https://ic.unicamp.br/'>Instituto da Computação</a>",
+        "<a href='https://www.eco.unicamp.br/'>Instituto de Economia</a>",
+        "<a href='https://www.iel.unicamp.br/'>Instituto de Estudos Linguisticos</a>",
+        "<a href='https://www.ifch.unicamp.br/'>Instituto de Filosofia e Ciências Humanas</a>",
+        "<a href='https://portal.ifi.unicamp.br/'>Instituto de Física</a>",
+        "<a href='https://portal.ige.unicamp.br/'>Instituto de Geociencias</a>",
+        "<a href='https://www.ime.unicamp.br/index.php'>Instituto de Matemática</a>",
+        "<a href='https://iqm.unicamp.br/'>Instituto de Química</a>",
+        "<a href='https://www.fcf.unicamp.br/pt-br/'>Faculdade de Ciências Farmaceuticas</a>",
+        "<a href='https://www.fcm.unicamp.br/fcm/'>Faculdade de Ciências Médicas</a>",
+        "<a href='https://www.fea.unicamp.br/'>Faculdade de Engenharia de Alimentos</a>",
+        "<a href='https://www.feagri.unicamp.br/portal/en/'>Faculdade de Engenharia Agrícola</a>",
+        "<a href='https://www.fem.unicamp.br/index.php/pt-br/'>Faculdade de Engenharia Mecânica</a>",
+        "<a href='http://www.feq.unicamp.br/'>Faculdade de Engenharia Química</a>",
+        "<a href='https://www.fef.unicamp.br/fef/'>Faculdade de Educação Física</a>",
+        "<a href='https://www.fe.unicamp.br/'>Faculdade de Educação</a>",
+        "<a href='https://www.fecfau.unicamp.br/'>Faculdade de Engenharia Civil, Arquitetura e Urbanismo</a>",
+        "<a href='https://www.fee.unicamp.br/'>Faculdade de Engenharia Elétrica e da Computação</a>",
+        "<a href='https://www.fenf.unicamp.br/'>Faculdade de Enfermagem</a>"
+        )
+
+
+
+```
+
+
+```{r, echo=FALSE}
+
+library(leaflet)
+
+
+icon <- makeIcon( 
+        iconUrl = 'http://www.ic.unicamp.br/~stolfi/EXPORT/projects/ic-logos/2010-03-16/logotipos/png/logo-unicamp-name-line-blk-red-0480.png',
+        iconWidth = 31 , 
+        iconHeight = 31,
+        iconAnchorX = 25, 
+        iconAnchorY = 0
+        )
+
+markers %>% 
+        leaflet(width=950, height =600) %>%
+        addTiles() %>%
+        addMarkers(icon=icon, popup = websites)%>%
+        addMiniMap(zoomLevelOffset=-11)
+
+
+```
