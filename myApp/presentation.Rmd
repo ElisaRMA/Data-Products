@@ -2,7 +2,7 @@
 title: "Shiny App - Decision Tree for predicting iris Species"
 author: "ElisaRMA"
 date: "8/31/2021"
-output: ioslides_presentation
+output: slidy_presentation
 ---
 
 ```{r setup, include=FALSE}
