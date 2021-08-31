@@ -7,7 +7,7 @@
 #    http://shiny.rstudio.com/
 
 # This app was created as a final project for the Data Science Products Course
-# as part of Data Science Specialization Course at Coursera. 
+# as part of Data Science Specialization Course at Coursera.
 
 # This shiny app can be used to predict the XXX. The algorithm used for prediction was a simple
 # decision tree.
@@ -47,12 +47,18 @@ shinyUI(fluidPage(
 
         # Show the result of the algorithm (was is the plant) and the decision tree generated
         mainPanel(
-            plotOutput('tree'),
-            h2('Your plant belongs to:'),
-            textOutput('species'),
-            h5('For setosa=1, versicolor=2, virginica=3'),
-            h3('Estimated error rate for this prediction:'),
-            textOutput('error')
+            tabsetPanel(type='tabs',
+                        tabPanel("Instructions", br(), htmlOutput("instructions")),
+                        tabPanel("Result", br(),
+                                 plotOutput('tree'),
+                                 h2('Your plant belongs to:'),
+                                 textOutput('species'),
+                                 h5('For setosa=1, versicolor=2, virginica=3'),
+                                 h3('Estimated error rate for this prediction:'),
+                                 textOutput('error'))
+
+            )
+
         )
     )
 ))

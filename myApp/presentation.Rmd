@@ -1,0 +1,75 @@
+---
+title: "Shiny App - Decision Tree for predicting iris Species"
+author: "ElisaRMA"
+date: "8/31/2021"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+The first step to built the app was to create a Machine Learning model. The objective was to create a model to predict the iris species based on their features. For this, the `caret` package was used along with the decision tree algorithm (`rpart`)
+
+The iris data with the features used to build the model are as follows:
+```{r}
+
+data(iris)
+head(iris)
+
+```
+
+## Algorithm workflow
+
+The workflow for the creation of the algorithm was:
+
+* Load `caret` package
+* Partition of the data into training and testing
+* Train the algorithm using the `rpart` method(decision tree) and cross validation
+* Apply  model into the test set to verify the error rate
+* Creation of the decision tree plot
+* Apply the model into the new data given by the user
+
+## Algorithm code
+The code for the algorithm is below:
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(caret)
+
+partition <- createDataPartition(y=iris$Species,p=0.7,list=FALSE)
+train <- iris[partition,]
+test <- iris[-partition,]
+
+dtree <-  train(Species ~ .,data=train,method="rpart",
+                trControl = trainControl(method = "cv"))
+    
+testpred <-  predict(dtree, newdata = test)
+    
+error  <- round(mean(testpred != test$Species), 2)
+
+```
+
+
+## The finished model 
+
+```{r cars, echo=TRUE, message=FALSE, warning=FALSE}
+library(rattle)
+fancyRpartPlot(dtree$finalModel, uniform=TRUE)
+```
+
+## Input and Output of the app
+
+The code presented before is embedded into the Shiny app along with the programming for appropriate interactivity. 
+
+When values are inputted into the side panel of the app the model is applied to such values and a output of the predicted species is given.
+
+An example of some values and its output is given below. 
+
+```{r, echo=TRUE}
+sl =1.5 ; sw =10 ; pl=15 ; pw = 7
+predict(dtree, newdata=data.frame(Sepal.Length=sl, Sepal.Width=sw, 
+                                  Petal.Length=pl, Petal.Width=pw))
+
+```
+
